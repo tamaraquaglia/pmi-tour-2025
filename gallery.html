@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Event Photos - PMI Tour 2025 Buenos Aires</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+body {
+font-family: 'Inter', sans-serif;
+}
+.grain-texture {
+background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200"><defs><pattern id="grain2" width="200" height="200" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="0.8" fill="black" opacity="0.02"/><circle cx="150" cy="50" r="0.6" fill="black" opacity="0.015"/><circle cx="100" cy="100" r="0.7" fill="black" opacity="0.025"/><circle cx="50" cy="150" r="0.4" fill="black" opacity="0.01"/><circle cx="150" cy="150" r="0.9" fill="black" opacity="0.03"/></pattern></defs><rect width="200" height="200" fill="url(%23grain2)"/></svg>');
+background-color: #F7F4EF;
+}
+.photo-grid {
+columns: 4;
+column-gap: 1.5rem;
+}
+.photo-card {
+break-inside: avoid;
+margin-bottom: 1.5rem;
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.photo-card:hover {
+transform: translateY(-4px);
+box-shadow: 0 20px 40px rgba(32, 15, 59, 0.15);
+}
+.lightbox {
+display: none;
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: rgba(0, 0, 0, 0.95);
+z-index: 9999;
+}
+.lightbox.active {
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.lightbox-content {
+position: relative;
+max-width: 90vw;
+max-height: 90vh;
+}
+.lightbox img {
+max-width: 100%;
+max-height: 100%;
+object-fit: contain;
+}
+.filter-chip {
+transition: all 0.3s ease;
+}
+.filter-chip.active {
+background: #200F3B;
+color: white;
+}
+.fade-in {
+opacity: 0;
+transform: translateY(30px);
+animation: fadeInUp 0.8s ease forwards;
+}
+@keyframes fadeInUp {
+to {
+opacity: 1;
+transform: translateY(0);
+}
+}
+.stagger-1 { animation-delay: 0.1s; }
+.stagger-2 { animation-delay: 0.2s; }
+.stagger-3 { animation-delay: 0.3s; }
+.stagger-4 { animation-delay: 0.4s; }
+@media (max-width: 1024px) {
+.photo-grid { columns: 3; }
+}
+@media (max-width: 768px) {
+.photo-grid { columns: 2; }
+}
+@media (max-width: 640px) {
+.photo-grid { columns: 1; }
+}
+</style>
+<script>
+tailwind.config = {
+theme: {
+extend: {
+colors: {
+primary: '#200F3B',
+secondary: '#05BFE0',
+accent: '#FF610F',
+neutral: '#F7F4EF',
+'off-black': '#000000',
+'violet': {
+light: '#EFEDF3',
+DEFAULT: '#4F17A8',
+medium: '#B465FF',
+dark: '#371075',
+darker: '#200F3B',
+darkest: '#100522'
+},
+'aqua': {
+light: '#EEFAFA',
+DEFAULT: '#05BFE0',
+dark: '#005C77',
+darker: '#023041',
+darkest: '#030D19'
+},
+'tangerine': {
+light: '#FEF7F3',
+DEFAULT: '#FF610F',
+dark: '#A12608',
+darker: '#451409',
+darkest: '#1A0503'
+}
+},
+borderRadius: {
+'none': '0px',
+'sm': '4px',
+DEFAULT: '8px',
+'md': '12px',
+'lg': '16px',
+'xl': '20px',
+'2xl': '24px',
+'3xl': '32px',
+'full': '9999px',
+'button': '8px'
+}
+}
+}
+}
+</script>
+</head>
+<body class="bg-white">
+<nav class="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-md z-50 border-b border-gray-100">
+<div class="container mx-auto px-6 py-4">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
+<img src="img/logo-rounded.jpg" alt="PMI Logo" class="w-full h-full object-cover" />
+</div>
+<span class="text-xl font-bold text-primary">PMI Tour 2025</span>
+</div>
+<a href="index.html" data-readdy="true" class="flex items-center gap-2 text-gray-600 hover:text-primary transition-colors duration-300">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-arrow-left-line text-lg"></i>
+</div>
+<span class="font-medium">Back to Event</span>
+</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="bg-primary text-white px-6 py-2 rounded-button font-medium hover:bg-opacity-90 transition-all duration-300 whitespace-nowrap !rounded-button">
+<div class="w-4 h-4 flex items-center justify-center mr-2 inline-block">
+<i class="ri-share-line"></i>
+</div>
+Share Gallery
+</button>
+</div>
+</div>
+</div>
+</nav>
+<main class="pt-20">
+<section class="py-16 bg-gradient-to-br from-primary/5 to-secondary/5">
+<div class="container mx-auto px-6">
+<div class="max-w-4xl mx-auto text-center">
+<h1 class="text-6xl font-bold text-primary mb-6 fade-in">Fotos del Evento</h1>
+<p class="text-xl text-gray-600 mb-8 leading-relaxed fade-in stagger-1">
+Explorá momentos memorables del PMI Tour, incluyendo presentaciones principales, sesiones de networking, talleres e interacciones entre los asistentes.</p>
+<div class="flex flex-wrap justify-center gap-3 mb-8 fade-in stagger-2">
+<span class="bg-white px-4 py-2 rounded-full text-sm text-gray-600 border border-gray-200">
+<div class="w-4 h-4 flex items-center justify-center mr-2 inline-block">
+<i class="ri-image-line"></i>
+</div>
+247 Photos
+</span>
+<span class="bg-white px-4 py-2 rounded-full text-sm text-gray-600 border border-gray-200">
+<div class="w-4 h-4 flex items-center justify-center mr-2 inline-block">
+<i class="ri-calendar-line"></i>
+</div>
+2023-2025
+</span>
+<span class="bg-white px-4 py-2 rounded-full text-sm text-gray-600 border border-gray-200">
+<div class="w-4 h-4 flex items-center justify-center mr-2 inline-block">
+<i class="ri-global-line"></i>
+</div>
+Buenos Aires, Argentina
+</span>
+</div>
+</div>
+</div>
+</section>
+<section class="py-12 bg-white sticky top-20 z-40 border-b border-gray-100">
+<div class="container mx-auto px-6">
+<div class="flex flex-col lg:flex-row items-center justify-between gap-6">
+<div class="flex flex-wrap items-center gap-3">
+<span class="text-gray-700 font-medium">Filter by:</span>
+<button class="filter-chip active px-4 py-2 rounded-full border border-gray-200 text-sm font-medium hover:bg-gray-50 transition-all duration-300" data-filter="all">
+All Photos
+</button>
+<button class="filter-chip px-4 py-2 rounded-full border border-gray-200 text-sm font-medium hover:bg-gray-50 transition-all duration-300" data-filter="keynotes">
+Keynotes
+</button>
+<button class="filter-chip px-4 py-2 rounded-full border border-gray-200 text-sm font-medium hover:bg-gray-50 transition-all duration-300" data-filter="workshops">
+Workshops
+</button>
+<button class="filter-chip px-4 py-2 rounded-full border border-gray-200 text-sm font-medium hover:bg-gray-50 transition-all duration-300" data-filter="networking">
+Networking
+</button>
+<button class="filter-chip px-4 py-2 rounded-full border border-gray-200 text-sm font-medium hover:bg-gray-50 transition-all duration-300" data-filter="venue">
+Venue
+</button>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative">
+<select class="appearance-none bg-white border border-gray-200 rounded-lg px-4 py-2 pr-8 text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+<option value="2025">2025</option>
+<option value="2024">2024</option>
+<option value="2023">2023</option>
+</select>
+<div class="absolute right-2 top-1/2 transform -translate-y-1/2 pointer-events-none">
+<div class="w-4 h-4 flex items-center justify-center">
+<i class="ri-arrow-down-s-line text-gray-400"></i>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="p-2 rounded-lg border border-gray-200 hover:bg-gray-50 transition-colors duration-300" id="gridView">
+<div class="w-4 h-4 flex items-center justify-center">
+<i class="ri-grid-line text-gray-600"></i>
+</div>
+</button>
+<button class="p-2 rounded-lg border border-gray-200 hover:bg-gray-50 transition-colors duration-300" id="listView">
+<div class="w-4 h-4 flex items-center justify-center">
+<i class="ri-list-check text-gray-600"></i>
+</div>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="py-12 grain-texture min-h-screen">
+<div class="container mx-auto px-6">
+<div class="photo-grid" id="photoGrid">
+<div class="photo-card bg-white rounded-2xl overflow-hidden shadow-lg cursor-pointer" data-category="keynotes" data-lightbox="https://readdy.ai/api/search-image?query=Professional%20keynote%20speaker%20presenting%20on%20stage%20at%20business%20conference%2C%20large%20audience%2C%20modern%20auditorium%2C%20professional%20lighting%2C%20corporate%20event%20atmosphere%2C%20high%20quality%20conference%20photography&width=800&height=1200&seq=keynote1&orientation=portrait">
+<img src="https://readdy.ai/api/search-image?query=Professional%20keynote%20speaker%20presenting%20on%20stage%20at%20business%20conference%2C%20large%20audience%2C%20modern%20auditorium%2C%20professional%20lighting%2C%20corporate%20event%20atmosphere%2C%20high%20quality%20conference%20photography&width=400&height=600&seq=keynote1&orientation=portrait" alt="Keynote Presentation" class="w-full h-auto object-cover">
+<div class="p-4">
+<div class="flex items-center justify-between mb-2">
+<span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-xs font-medium">Keynote</span>
+<button class="share-btn p-1 hover:bg-gray-100 rounded-full transition-colors duration-300">
+<div class="w-4 h-4 flex items-center justify-center">
+<i class="ri-share-line text-gray-400"></i>
+</div>
+</button>
+</div>
+<h3 class="font-semibold text-gray-800 mb-1">Opening Keynote - Digital Transformation</h3>
+<p class="text-sm text-gray-600">PMI Tour Buenos Aires 2024 • Main Auditorium</p>
+</div>
+</div>
+<div class="photo-card bg-white rounded-2xl overflow-hidden shadow-lg cursor-pointer" data-category="networking" data-lightbox="https://readdy.ai/api/search-image?query=Professional%20business%20networking%20event%20with%20diverse%20group%20of%20people%20mingling%2C%20modern%20venue%2C%20cocktail%20reception%20atmosphere%2C%20natural%20lighting%2C%20corporate%20networking%20photography&width=800&height=600&seq=networking1&orientation=landscape">
+<img src="https://readdy.ai/api/search-image?query=Professional%20business%20networking%20event%20with%20diverse%20group%20of%20people%20mingling%2C%20modern%20venue%2C%20cocktail%20reception%20atmosphere%2C%20natural%20lighting%2C%20corporate%20networking%20photography&width=400&height=300&seq=networking1&orientation=landscape" alt="Networking Session" class="w-full h-auto object-cover">
+<div class="p-4">
+<div class="flex items-center justify-between mb-2">
+<span class="bg-secondary/10 text-secondary px-3 py-1 rounded-full text-xs font-medium">Networking</span>
+<button class="share-btn p-1 hover:bg-gray-100 rounded-full transition-colors duration-300">
+<div class="w-4 h-4 flex items-center justify-center">
+<i class="ri-share-line text-gray-400"></i>
+</div>
+</button>
+</div>
+<h3 class="font-semibold text-gray-800 mb-1">Welcome Reception</h3>
+<p class="text-sm text-gray-600">PMI Tour Mexico City 2024 • Lobby Area</p>
+</div>
+</div>
+<div class="photo-card bg-white rounded-2xl overflow-hidden shadow-lg cursor-pointer" data-category="workshops" data-lightbox="https://readdy.ai/api/search-image?query=Interactive%20business%20workshop%20session%20with%20participants%20working%20in%20groups%2C%20collaborative%20learning%20environment%2C%20modern%20conference%20room%2C%20professional%20training%20atmosphere%2C%20educational%20event%20photography&width=800&height=1000&seq=workshop1&orientation=portrait">
+<img src="https://readdy.ai/api/search-image?query=Interactive%20business%20workshop%20session%20with%20participants%20working%20in%20groups%2C%20collaborative%20learning%20environment%2C%20modern%20conference%20room%2C%20professional%20training%20atmosphere%2C%20educational%20event%20photography&width=400&height=500&seq=workshop1&orientation=portrait" alt="Workshop Session" class="w-full h-auto object-cover">
+<div class="p-4">
+<div class="flex items-center justify-between mb-2">
+<span class="bg-accent/10 text-accent px-3 py-1 rounded-full text-xs font-medium">Workshop</span>
+<button class="share-btn p-1 hover:bg-gray-100 rounded-full transition-colors duration-300">
+<div class="w-4 h-4 flex items-center justify-center">
+<i class="ri-share-line text-gray-400"></i>
+</div>
+</button>
+</div>
+<h3 class="font-semibold text-gray-800 mb-1">Agile Leadership Masterclass</h3>
+<p class="text-sm text-gray-600">PMI Tour São Paulo 2023 • Workshop Room B</p>
+</div>
+</div>
+<div class="photo-card bg-white rounded-2xl overflow-hidden shadow-lg cursor-pointer" data-category="venue" data-lightbox="https://readdy.ai/api/search-image?query=Modern%20conference%20venue%20interior%20with%20elegant%20architecture%2C%20spacious%20lobby%20area%2C%20contemporary%20design%2C%20professional%20lighting%2C%20corporate%20event%20space%2C%20architectural%20photography&width=800&height=600&seq=venue1&orientation=landscape">
+<img src="https://readdy.ai/api/search-image?query=Modern%20conference%20venue%20interior%20with%20elegant%20architecture%2C%20spacious%20lobby%20area%2C%20contemporary%20design%2C%20professional%20lighting%2C%20corporate%20event%20space%2C%20architectural%20photography&width=400&height=300&seq=venue1&orientation=landscape" alt="Venue Interior" class="w-full h-auto object-cover">
+<div class="p-4">
+<div class="flex items-center justify-between mb-2">
+<span class="bg-violet/10 text-violet px-3 py-1 rounded-full text-xs font-medium">Venue</span>
+<button class="share-btn p-1 hover:bg-gray-100 rounded-full transition-colors duration-300">
+<div class="w-4 h-4 flex items-center justify-center">
+<i class="ri-share-line text-gray-400"></i>
+</div>
+</button>
+</div>
+<h3 class="font-semibold text-gray-800 mb-1">Main Conference Hall</h3>
+<p class="text-sm text-gray-600">Centro de Convenciones • Buenos Aires</p>
+</div>
+</div>
+<div class="photo-card bg-white rounded-2xl overflow-hidden shadow-lg cursor-pointer" data-category="keynotes" data-lightbox="https://readdy.ai/api/search-image?query=Dynamic%20keynote%20presentation%20with%20speaker%20engaging%20audience%2C%20large%20screen%20display%2C%20professional%20stage%20setup%2C%20conference%20atmosphere%2C%20corporate%20event%20photography%2C%20motivational%20speaking&width=800&height=1200&seq=keynote2&orientation=portrait">
+<img src="https://readdy.ai/api/search-image?query=Dynamic%20keynote%20presentation%20with%20speaker%20engaging%20audience%2C%20large%20screen%20display%2C%20professional%20stage%20setup%2C%20conference%20atmosphere%2C%20corporate%20event%20photography%2C%20motivational%20speaking&width=400&height=600&seq=keynote2&orientation=portrait" alt="Keynote Session" class="w-full h-auto object-cover">
+<div class="p-4">
+<div class="flex items-center justify-between mb-2">
+<span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-xs font-medium">Keynote</span>
+<button class="share-btn p-1 hover:bg-gray-100 rounded-full transition-colors duration-300">
+<div class="w-4 h-4 flex items-center justify-center">
+<i class="ri-share-line text-gray-400"></i>
+</div>
+</button>
+</div>
+<h3 class="font-semibold text-gray-800 mb-1">AI in Project Management</h3>
+<p class="text-sm text-gray-600">PMI Tour Lima 2024 • Auditorium Principal</p>
+</div>
+</div>
+<div class="photo-card bg-white rounded-2xl overflow-hidden shadow-lg cursor-pointer" data-category="networking" data-lightbox="https://readdy.ai/api/search-image?query=Professional%20conference%20break%20time%20with%20attendees%20socializing%2C%20coffee%20break%20networking%2C%20diverse%20group%20of%20professionals%2C%20casual%20business%20interaction%2C%20modern%20venue%20background&width=800&height=800&seq=networking2&orientation=squarish">
+<img src="https://readdy.ai/api/search-image?query=Professional%20conference%20break%20time%20with%20attendees%20socializing%2C%20coffee%20break%20networking%2C%20diverse%20group%20of%20professionals%2C%20casual%20business%20interaction%2C%20modern%20venue%20background&width=400&height=400&seq=networking2&orientation=squarish" alt="Coffee Break Networking" class="w-full h-auto object-cover">
+<div class="p-4">
+<div class="flex items-center justify-between mb-2">
+<span class="bg-secondary/10 text-secondary px-3 py-1 rounded-full text-xs font-medium">Networking</span>
+<button class="share-btn p-1 hover:bg-gray-100 rounded-full transition-colors duration-300">
+<div class="w-4 h-4 flex items-center justify-center">
+<i class="ri-share-line text-gray-400"></i>
+</div>
+</button>
+</div>
+<h3 class="font-semibold text-gray-800 mb-1">Coffee Break Connections</h3>
+<p class="text-sm text-gray-600">PMI Tour Santiago 2023 • Exhibition Area</p>
+</div>
+</div>
+<div class="photo-card bg-white rounded-2xl overflow-hidden shadow-lg cursor-pointer" data-category="workshops" data-lightbox="https://readdy.ai/api/search-image?query=Hands-on%20workshop%20training%20session%20with%20facilitator%20and%20participants%2C%20collaborative%20learning%20environment%2C%20flipchart%20presentations%2C%20interactive%20training%20atmosphere%2C%20professional%20development%20setting&width=800&height=600&seq=workshop2&orientation=landscape">
+<img src="https://readdy.ai/api/search-image?query=Hands-on%20workshop%20training%20session%20with%20facilitator%20and%20participants%2C%20collaborative%20learning%20environment%2C%20flipchart%20presentations%2C%20interactive%20training%20atmosphere%2C%20professional%20development%20setting&width=400&height=300&seq=workshop2&orientation=landscape" alt="Interactive Workshop" class="w-full h-auto object-cover">
+<div class="p-4">
+<div class="flex items-center justify-between mb-2">
+<span class="bg-accent/10 text-accent px-3 py-1 rounded-full text-xs font-medium">Workshop</span>
+<button class="share-btn p-1 hover:bg-gray-100 rounded-full transition-colors duration-300">
+<div class="w-4 h-4 flex items-center justify-center">
+<i class="ri-share-line text-gray-400"></i>
+</div>
+</button>
+</div>
+<h3 class="font-semibold text-gray-800 mb-1">Stakeholder Engagement Workshop</h3>
+<p class="text-sm text-gray-600">PMI Tour Bogotá 2024 • Training Room A</p>
+</div>
+</div>
+<div class="photo-card bg-white rounded-2xl overflow-hidden shadow-lg cursor-pointer" data-category="venue" data-lightbox="https://readdy.ai/api/search-image?query=Exhibition%20hall%20setup%20for%20professional%20conference%20with%20sponsor%20booths%2C%20modern%20trade%20show%20environment%2C%20corporate%20branding%20displays%2C%20professional%20event%20space%2C%20commercial%20exhibition%20photography&width=800&height=1000&seq=venue2&orientation=portrait">
+<img src="https://readdy.ai/api/search-image?query=Exhibition%20hall%20setup%20for%20professional%20conference%20with%20sponsor%20booths%2C%20modern%20trade%20show%20environment%2C%20corporate%20branding%20displays%2C%20professional%20event%20space%2C%20commercial%20exhibition%20photography&width=400&height=500&seq=venue2&orientation=portrait" alt="Exhibition Hall" class="w-full h-auto object-cover">
+<div class="p-4">
+<div class="flex items-center justify-between mb-2">
+<span class="bg-violet/10 text-violet px-3 py-1 rounded-full text-xs font-medium">Venue</span>
+<button class="share-btn p-1 hover:bg-gray-100 rounded-full transition-colors duration-300">
+<div class="w-4 h-4 flex items-center justify-center">
+<i class="ri-share-line text-gray-400"></i>
+</div>
+</button>
+</div>
+<h3 class="font-semibold text-gray-800 mb-1">Exhibition & Sponsor Area</h3>
+<p class="text-sm text-gray-600">Convention Center • Mexico City</p>
+</div>
+</div>
+<div class="photo-card bg-white rounded-2xl overflow-hidden shadow-lg cursor-pointer" data-category="keynotes" data-lightbox="https://readdy.ai/api/search-image?query=Panel%20discussion%20with%20multiple%20speakers%20on%20stage%2C%20professional%20conference%20panel%20setup%2C%20moderator%20and%20panelists%2C%20audience%20engagement%2C%20corporate%20event%20atmosphere%2C%20business%20conference%20photography&width=800&height=600&seq=keynote3&orientation=landscape">
+<img src="https://readdy.ai/api/search-image?query=Panel%20discussion%20with%20multiple%20speakers%20on%20stage%2C%20professional%20conference%20panel%20setup%2C%20moderator%20and%20panelists%2C%20audience%20engagement%2C%20corporate%20event%20atmosphere%2C%20business%20conference%20photography&width=400&height=300&seq=keynote3&orientation=landscape" alt="Panel Discussion" class="w-full h-auto object-cover">
+<div class="p-4">
+<div class="flex items-center justify-between mb-2">
+<span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-xs font-medium">Keynote</span>
+<button class="share-btn p-1 hover:bg-gray-100 rounded-full transition-colors duration-300">
+<div class="w-4 h-4 flex items-center justify-center">
+<i class="ri-share-line text-gray-400"></i>
+</div>
+</button>
+</div>
+<h3 class="font-semibold text-gray-800 mb-1">Leadership Panel Discussion</h3>
+<p class="text-sm text-gray-600">PMI Tour Montevideo 2023 • Main Stage</p>
+</div>
+</div>
+<div class="photo-card bg-white rounded-2xl overflow-hidden shadow-lg cursor-pointer" data-category="networking" data-lightbox="https://readdy.ai/api/search-image?query=Evening%20gala%20dinner%20event%20for%20business%20conference%2C%20elegant%20banquet%20setting%2C%20attendees%20in%20formal%20attire%2C%20sophisticated%20venue%20atmosphere%2C%20corporate%20celebration%2C%20professional%20event%20photography&width=800&height=1200&seq=networking3&orientation=portrait">
+<img src="https://readdy.ai/api/search-image?query=Evening%20gala%20dinner%20event%20for%20business%20conference%2C%20elegant%20banquet%20setting%2C%20attendees%20in%20formal%20attire%2C%20sophisticated%20venue%20atmosphere%2C%20corporate%20celebration%2C%20professional%20event%20photography&width=400&height=600&seq=networking3&orientation=portrait" alt="Gala Dinner" class="w-full h-auto object-cover">
+<div class="p-4">
+<div class="flex items-center justify-between mb-2">
+<span class="bg-secondary/10 text-secondary px-3 py-1 rounded-full text-xs font-medium">Networking</span>
+<button class="share-btn p-1 hover:bg-gray-100 rounded-full transition-colors duration-300">
+<div class="w-4 h-4 flex items-center justify-center">
+<i class="ri-share-line text-gray-400"></i>
+</div>
+</button>
+</div>
+<h3 class="font-semibold text-gray-800 mb-1">Awards Gala Dinner</h3>
+<p class="text-sm text-gray-600">PMI Tour Buenos Aires 2024 • Grand Ballroom</p>
+</div>
+</div>
+<div class="photo-card bg-white rounded-2xl overflow-hidden shadow-lg cursor-pointer" data-category="workshops" data-lightbox="https://readdy.ai/api/search-image?query=Technology%20demonstration%20workshop%20with%20laptops%20and%20digital%20tools%2C%20modern%20training%20room%2C%20participants%20learning%20software%2C%20interactive%20tech%20session%2C%20professional%20development%20environment&width=800&height=800&seq=workshop3&orientation=squarish">
+<img src="https://readdy.ai/api/search-image?query=Technology%20demonstration%20workshop%20with%20laptops%20and%20digital%20tools%2C%20modern%20training%20room%2C%20participants%20learning%20software%2C%20interactive%20tech%20session%2C%20professional%20development%20environment&width=400&height=400&seq=workshop3&orientation=squarish" alt="Tech Workshop" class="w-full h-auto object-cover">
+<div class="p-4">
+<div class="flex items-center justify-between mb-2">
+<span class="bg-accent/10 text-accent px-3 py-1 rounded-full text-xs font-medium">Workshop</span>
+<button class="share-btn p-1 hover:bg-gray-100 rounded-full transition-colors duration-300">
+<div class="w-4 h-4 flex items-center justify-center">
+<i class="ri-share-line text-gray-400"></i>
+</div>
+</button>
+</div>
+<h3 class="font-semibold text-gray-800 mb-1">Digital Tools Masterclass</h3>
+<p class="text-sm text-gray-600">PMI Tour Quito 2024 • Tech Lab</p>
+</div>
+</div>
+<div class="photo-card bg-white rounded-2xl overflow-hidden shadow-lg cursor-pointer" data-category="venue" data-lightbox="https://readdy.ai/api/search-image?query=Modern%20conference%20center%20exterior%20view%20with%20contemporary%20architecture%2C%20glass%20facade%20building%2C%20professional%20venue%20entrance%2C%20urban%20setting%2C%20corporate%20architecture%20photography%2C%20business%20district&width=800&height=600&seq=venue3&orientation=landscape">
+<img src="https://readdy.ai/api/search-image?query=Modern%20conference%20center%20exterior%20view%20with%20contemporary%20architecture%2C%20glass%20facade%20building%2C%20professional%20venue%20entrance%2C%20urban%20setting%2C%20corporate%20architecture%20photography%2C%20business%20district&width=400&height=300&seq=venue3&orientation=landscape" alt="Venue Exterior" class="w-full h-auto object-cover">
+<div class="p-4">
+<div class="flex items-center justify-between mb-2">
+<span class="bg-violet/10 text-violet px-3 py-1 rounded-full text-xs font-medium">Venue</span>
+<button class="share-btn p-1 hover:bg-gray-100 rounded-full transition-colors duration-300">
+<div class="w-4 h-4 flex items-center justify-center">
+<i class="ri-share-line text-gray-400"></i>
+</div>
+</button>
+</div>
+<h3 class="font-semibold text-gray-800 mb-1">Conference Center Exterior</h3>
+<p class="text-sm text-gray-600">World Trade Center • São Paulo</p>
+</div>
+</div>
+</div>
+<div class="text-center mt-12 fade-in">
+<button id="loadMore" class="bg-primary text-white px-8 py-4 rounded-button font-semibold text-lg hover:bg-opacity-90 transition-all duration-300 hover:transform hover:scale-105 whitespace-nowrap !rounded-button">
+<div class="w-5 h-5 flex items-center justify-center mr-2 inline-block">
+<i class="ri-add-line"></i>
+</div>
+Load More Photos
+</button>
+</div>
+</div>
+</section>
+</main>
+
+<!-- Footer -->
+<footer class="bg-[#200F3B] text-white py-12 border-t-4 border-[#B465FF]">
+<div class="container mx-auto px-6">
+<div class="flex flex-col md:flex-row justify-between items-center">
+<div class="flex items-center gap-4 mb-6 md:mb-0">
+<div class="w-12 h-12 rounded-full overflow-hidden">
+  <img src="img/logo-rounded.jpg" alt="PMI Logo" class="w-full h-full object-cover" />
+</div>
+
+<div>
+<p class="font-semibold">Project Management Institute</p>
+<p class="text-sm text-gray-400">Buenos Aires, Argentina</p>
+</div>
+</div>
+<div class="flex items-center gap-8">
+<a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Política de Privacidad</a>
+<a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Términos y Condiciones</a>
+<span class="text-gray-400"><a href="https://pmi.org.ar" target="_blank" class="hover:underline">pmi.org.ar</a> | <a href="https://www.instagram.com/pmi.ba" target="_blank" class="hover:underline">@pmi.ba</a></span>
+</div>
+</div>
+<div class="border-t border-gray-700 mt-8 pt-8 text-center">
+<p class="text-gray-400 text-sm">
+© 2025 Capítulo Buenos Aires del PMI. Todos los derechos reservados. | Website by <a href="https://www.linkedin.com/in/quaglia-tamara/" target="_blank" class="underline hover:text-white transition-colors duration-300">Tamara Quaglia</a>
+</p>
+</div>
+</div>
+</footer>
+<button id="backToTop" class="fixed bottom-8 right-8 bg-primary/90 hover:bg-primary text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center transform translate-y-20 opacity-0 transition-all duration-300 cursor-pointer z-50">
+<i class="ri-arrow-up-line text-xl"></i>
+</button>
+
+<div class="lightbox" id="lightbox">
+<div class="absolute top-4 right-4 z-10">
+<button id="closeLightbox" class="bg-black/50 text-white w-12 h-12 rounded-full flex items-center justify-center hover:bg-black/70 transition-colors duration-300">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-close-line text-xl"></i>
+</div>
+</button>
+</div>
+<div class="absolute top-4 left-4 z-10 flex gap-2">
+<button class="bg-black/50 text-white px-4 py-2 rounded-full flex items-center gap-2 hover:bg-black/70 transition-colors duration-300">
+<div class="w-4 h-4 flex items-center justify-center">
+<i class="ri-linkedin-fill"></i>
+</div>
+<span class="text-sm">Share</span>
+</button>
+<button class="bg-black/50 text-white px-4 py-2 rounded-full flex items-center gap-2 hover:bg-black/70 transition-colors duration-300">
+<div class="w-4 h-4 flex items-center justify-center">
+<i class="ri-download-line"></i>
+</div>
+<span class="text-sm">Download</span>
+</button>
+</div>
+<div class="lightbox-content">
+<img id="lightboxImage" src="" alt="" class="rounded-lg">
+<div class="absolute bottom-4 left-4 right-4 bg-black/50 text-white p-4 rounded-lg">
+<h3 id="lightboxTitle" class="font-semibold mb-1"></h3>
+<p id="lightboxDescription" class="text-sm text-gray-300"></p>
+</div>
+</div>
+<button id="prevImage" class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black/50 text-white w-12 h-12 rounded-full flex items-center justify-center hover:bg-black/70 transition-colors duration-300">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-arrow-left-line text-xl"></i>
+</div>
+</button>
+<button id="nextImage" class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black/50 text-white w-12 h-12 rounded-full flex items-center justify-center hover:bg-black/70 transition-colors duration-300">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-arrow-right-line text-xl"></i>
+</div>
+</button>
+</div>
+<button id="backToTop" class="fixed bottom-8 right-8 bg-primary/90 hover:bg-primary text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center transform translate-y-20 opacity-0 transition-all duration-300 cursor-pointer z-50">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-arrow-up-line text-xl"></i>
+</div>
+</button>
+
+
+<script id="filter-functionality">
+document.addEventListener('DOMContentLoaded', function() {
+const filterChips = document.querySelectorAll('.filter-chip');
+const photoCards = document.querySelectorAll('.photo-card');
+filterChips.forEach(chip => {
+chip.addEventListener('click', function() {
+filterChips.forEach(c => c.classList.remove('active'));
+this.classList.add('active');
+const filter = this.getAttribute('data-filter');
+photoCards.forEach(card => {
+if (filter === 'all' || card.getAttribute('data-category') === filter) {
+card.style.display = 'block';
+} else {
+card.style.display = 'none';
+}
+});
+});
+});
+});
+</script>
+<script id="lightbox-functionality">
+document.addEventListener('DOMContentLoaded', function() {
+const lightbox = document.getElementById('lightbox');
+const lightboxImage = document.getElementById('lightboxImage');
+const lightboxTitle = document.getElementById('lightboxTitle');
+const lightboxDescription = document.getElementById('lightboxDescription');
+const closeLightbox = document.getElementById('closeLightbox');
+const photoCards = document.querySelectorAll('.photo-card');
+let currentImageIndex = 0;
+let visibleImages = [];
+function updateVisibleImages() {
+visibleImages = Array.from(document.querySelectorAll('.photo-card')).filter(card => 
+card.style.display !== 'none'
+);
+}
+photoCards.forEach((card, index) => {
+card.addEventListener('click', function() {
+updateVisibleImages();
+currentImageIndex = visibleImages.indexOf(this);
+const lightboxSrc = this.getAttribute('data-lightbox');
+const title = this.querySelector('h3').textContent;
+const description = this.querySelector('p').textContent;
+lightboxImage.src = lightboxSrc;
+lightboxTitle.textContent = title;
+lightboxDescription.textContent = description;
+lightbox.classList.add('active');
+document.body.style.overflow = 'hidden';
+});
+});
+closeLightbox.addEventListener('click', function() {
+lightbox.classList.remove('active');
+document.body.style.overflow = 'auto';
+});
+lightbox.addEventListener('click', function(e) {
+if (e.target === lightbox) {
+lightbox.classList.remove('active');
+document.body.style.overflow = 'auto';
+}
+});
+document.getElementById('prevImage').addEventListener('click', function() {
+updateVisibleImages();
+currentImageIndex = (currentImageIndex - 1 + visibleImages.length) % visibleImages.length;
+const card = visibleImages[currentImageIndex];
+const lightboxSrc = card.getAttribute('data-lightbox');
+const title = card.querySelector('h3').textContent;
+const description = card.querySelector('p').textContent;
+lightboxImage.src = lightboxSrc;
+lightboxTitle.textContent = title;
+lightboxDescription.textContent = description;
+});
+document.getElementById('nextImage').addEventListener('click', function() {
+updateVisibleImages();
+currentImageIndex = (currentImageIndex + 1) % visibleImages.length;
+const card = visibleImages[currentImageIndex];
+const lightboxSrc = card.getAttribute('data-lightbox');
+const title = card.querySelector('h3').textContent;
+const description = card.querySelector('p').textContent;
+lightboxImage.src = lightboxSrc;
+lightboxTitle.textContent = title;
+lightboxDescription.textContent = description;
+});
+document.addEventListener('keydown', function(e) {
+if (lightbox.classList.contains('active')) {
+if (e.key === 'Escape') {
+lightbox.classList.remove('active');
+document.body.style.overflow = 'auto';
+} else if (e.key === 'ArrowLeft') {
+document.getElementById('prevImage').click();
+} else if (e.key === 'ArrowRight') {
+document.getElementById('nextImage').click();
+}
+}
+});
+});
+</script>
+<script id="animations-and-interactions">
+document.addEventListener('DOMContentLoaded', function() {
+const observerOptions = {
+threshold: 0.1,
+rootMargin: '0px 0px -50px 0px'
+};
+const observer = new IntersectionObserver(function(entries) {
+entries.forEach(entry => {
+if (entry.isIntersecting) {
+entry.target.style.animationPlayState = 'running';
+}
+});
+}, observerOptions);
+document.querySelectorAll('.fade-in').forEach(el => {
+el.style.animationPlayState = 'paused';
+observer.observe(el);
+});
+const backToTopButton = document.getElementById('backToTop');
+window.addEventListener('scroll', () => {
+if (window.scrollY > 500) {
+backToTopButton.style.transform = 'translateY(0)';
+backToTopButton.style.opacity = '1';
+} else {
+backToTopButton.style.transform = 'translateY(20px)';
+backToTopButton.style.opacity = '0';
+}
+});
+backToTopButton.addEventListener('click', () => {
+window.scrollTo({
+top: 0,
+behavior: 'smooth'
+});
+});
+const shareButtons = document.querySelectorAll('.share-btn');
+shareButtons.forEach(btn => {
+btn.addEventListener('click', function(e) {
+e.stopPropagation();
+const card = this.closest('.photo-card');
+const title = card.querySelector('h3').textContent;
+const url = window.location.href;
+if (navigator.share) {
+navigator.share({
+title: title,
+text: `Check out this photo from PMI Tour: ${title}`,
+url: url
+});
+} else {
+navigator.clipboard.writeText(`${title} - ${url}`);
+this.innerHTML = '<div class="w-4 h-4 flex items-center justify-center"><i class="ri-check-line text-green-500"></i></div>';
+setTimeout(() => {
+this.innerHTML = '<div class="w-4 h-4 flex items-center justify-center"><i class="ri-share-line text-gray-400"></i></div>';
+}, 2000);
+}
+});
+});
+document.getElementById('loadMore').addEventListener('click', function() {
+this.innerHTML = '<div class="w-5 h-5 flex items-center justify-center mr-2 inline-block"><i class="ri-loader-4-line animate-spin"></i></div>Loading...';
+setTimeout(() => {
+this.innerHTML = '<div class="w-5 h-5 flex items-center justify-center mr-2 inline-block"><i class="ri-add-line"></i></div>Load More Photos';
+}, 2000);
+});
+});
+</script>
+</body>
+</html>
