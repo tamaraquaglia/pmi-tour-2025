@@ -64,7 +64,7 @@ DEFAULT: '8px',
 <!-- Hero Section -->
 <section class="min-h-screen flex items-center justify-center relative bg-cover bg-center pt-4 pb-10 lg:pt-1 lg:pb-1 overflow-hidden" style="background-image: url('img/main-tour-background.jpg')">
 <div class="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/85 to-transparent lg:to-transparent/50"></div>
-<div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col justify-between h-full pt-16 lg:pt-0">
+<div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col justify-between h-full pt-6 lg:pt-0">
 <div class="flex flex-row justify-between items-start lg:flex-row lg:items-center mb-8 lg:mb-12">
 <div class="text-white mb-8 lg:mb-0">
 <h2 class="text-xl font-light text-[#EFEDF3]">XVII Congreso Internacional de</h2>
@@ -103,7 +103,7 @@ DEFAULT: '8px',
 </div>
 <h1 class="font-aeonik-bold text-6xl sm:text-6xl lg:text-[120px] leading-none font-bold text-white mb-4 sm:mb-6 fade-in stagger-1 tracking-tight">PMI Tour 2025</h1>
 <div class="space-y-2 sm:space-y-3 mb-6 sm:mb-8">
-<h2 class="text-2xl sm:text-3xl font-light fade-in stagger-2 font-teodor" id="text-lema">
+<h2 class="text-2xl sm:text-3xl font-light fade-in stagger-2 font-aeonik-bold" id="text-lema">
   Entregar Valor – <span class="text-lema-claro">Éxito en la Gestión de Proyectos</span>
 </h2>
 
@@ -130,6 +130,10 @@ Registrarse
 Ver Agenda
 </button>
 </a>
+</div>
+<!-- LOGO DE PMI BAIRES -->
+<div class="mt-8 fade-in stagger-4">
+<img src="img/pmiba-logo-full-white.png" alt="PMI Buenos Aires Chapter Logo" class="mx-auto sm:mx-0 sm:ml-0 w-48 sm:w-54">
 </div>
 <!--End of Registrarse + Agenda-->
 </div>
@@ -186,23 +190,23 @@ Ediciones Anteriores
 <div class="bg-white/10 backdrop-blur-sm rounded-xl p-3 sm:p-4 fade-in stagger-3 w-auto">
 <div class="flex justify-center items-center gap-4 sm:gap-8">
 <div class="text-center">
-<div class="text-2xl sm:text-3xl font-bold text-white" id="days">00</div>
-<div class="text-xs sm:text-sm text-white/80">Days</div>
+<div class="text-3xl font-bold text-white" id="days">00</div>
+<div class="text-sm text-white/80">Días</div>
 </div>
 <div class="w-px h-12 bg-white/20"></div>
 <div class="text-center">
 <div class="text-3xl font-bold text-white" id="hours">00</div>
-<div class="text-sm text-white/80">Hours</div>
+<div class="text-sm text-white/80">Horas</div>
 </div>
 <div class="w-px h-12 bg-white/20"></div>
 <div class="text-center">
 <div class="text-3xl font-bold text-white" id="minutes">00</div>
-<div class="text-sm text-white/80">Minutes</div>
+<div class="text-sm text-white/80">Minutos</div>
 </div>
 <div class="w-px h-12 bg-white/20"></div>
 <div class="text-center">
 <div class="text-3xl font-bold text-white" id="seconds">00</div>
-<div class="text-sm text-white/80">Seconds</div>
+<div class="text-sm text-white/80">Segundos</div>
 </div>
 </div>
 </div>
@@ -751,7 +755,7 @@ Tenemos opciones de acceso tanto para socios como para no socios, por uno o dos 
           </ul>
           <a href="https://www.pmi.org.ar" target="_blank">
           <button class="bg-primary text-white px-8 py-4 rounded-button font-semibold text-lg hover:bg-opacity-90 transition-all duration-300 hover:transform hover:scale-105 whitespace-nowrap !rounded-button">
-            Quiero hacerme socio/a de PMI
+            Quiero hacerme socio
           </button></a>
         </div>
         <div class="lg:w-1/2 relative">
@@ -797,19 +801,19 @@ Tenemos opciones de acceso tanto para socios como para no socios, por uno o dos 
               <div>
                 <h4 class="text-xl font-bold text-off-black mb-2">Oportunidades de Voluntariado</h4>
                 <ul class="space-y-3 text-gray-600">
-                  <li class="flex items-center gap-2">
+                  <li class="flex items-center gap-2 volunteer-items">
                     <i class="ri-checkbox-circle-line text-secondary"></i>
                     <span>Organización y Logística de Eventos</span>
                   </li>
-                  <li class="flex items-center gap-2">
+                  <li class="flex items-center gap-2 volunteer-items">
                     <i class="ri-checkbox-circle-line text-secondary"></i>
                     <span>Soporte y Coordinación con Oradores</span>
                   </li>
-                  <li class="flex items-center gap-2">
+                  <li class="flex items-center gap-2 volunteer-items">
                     <i class="ri-checkbox-circle-line text-secondary"></i>
                     <span>Marketing y Comunicaciones</span>
                   </li>
-                  <li class="flex items-center gap-2">
+                  <li class="flex items-center gap-2 volunteer-items">
                     <i class="ri-checkbox-circle-line text-secondary"></i>
                     <span>Soporte Técnico</span>
                   </li>
@@ -825,19 +829,19 @@ Tenemos opciones de acceso tanto para socios como para no socios, por uno o dos 
               <div>
                 <h4 class="text-xl font-bold text-off-black mb-2">Beneficios</h4>
                 <ul class="space-y-3 text-gray-600">
-                  <li class="flex items-center gap-2">
+                  <li class="flex items-center gap-2 volunteer-items">
                     <i class="ri-star-line text-accent"></i>
                     <span>Acceso Gratuito al Evento</span>
                   </li>
                   <li class="flex items-center gap-2">
-                    <i class="ri-star-line text-accent"></i>
+                    <i class="ri-star-line text-accent volunteer-items"></i>
                     <span>Créditos PDU</span>
                   </li>
-                  <li class="flex items-center gap-2">
+                  <li class="flex items-center gap-2 volunteer-items">
                     <i class="ri-star-line text-accent"></i>
                     <span>Oportunidades de Networking</span>
                   </li>
-                  <li class="flex items-center gap-2">
+                  <li class="flex items-center gap-2 volunteer-items">
                     <i class="ri-star-line text-accent"></i>
                     <span>Experiencia en Liderazgo</span>
                   </li>
