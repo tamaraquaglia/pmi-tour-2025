@@ -1,54 +1,105 @@
 @font-face {
+  font-family: 'Aeonik';
+  src: url('../fonts/Aeonik Pro Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Aeonik';
+  src: url('../fonts/Aeonik Pro Regular Italic.woff2') format('woff2');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Aeonik';
+  src: url('../fonts/Aeonik Pro Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Aeonik';
+  src: url('../fonts/Aeonik Pro Medium Italic.woff2') format('woff2');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Aeonik';
+  src: url('../fonts/Aeonik Pro Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Aeonik';
+  src: url('../fonts/Aeonik Pro Bold Italic.woff2') format('woff2');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Aeonik';
+  src: url('../fonts/Aeonik Pro Black.woff2') format('woff2');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Aeonik';
+  src: url('../fonts/Aeonik Pro Black Italic.woff2') format('woff2');
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'GT Pressura Mono';
+  src: url('../fonts/GT Pressura Mono Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
   font-family: 'Teodor';
-  src: url('../fonts/Teodor-Bold.otf') format('opentype');
+  src: url('../fonts/te') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Teodor';
+  src: url('../fonts/Teodor TRIAL SemiBold.woff2') format('woff2');
   font-weight: 600;
   font-style: normal;
+  font-display: swap;
 }
 
-@font-face {
-  font-family: 'Aeonik';
-  src: url('Aeonik-Regular.ttf') format('truetype');
-  font-weight: 400;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Aeonik';
-  src: url('Aeonik-RegularItalic.ttf') format('truetype');
-  font-weight: 400;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: 'Aeonik';
-  src: url('Aeonik-Medium.ttf') format('truetype');
-  font-weight: 500;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Aeonik';
-  src: url('Aeonik-MediumItalic.ttf') format('truetype');
-  font-weight: 500;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: 'Aeonik';
-  src: url('Aeonik-Bold.ttf') format('truetype');
-  font-weight: 700;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Aeonik';
-  src: url('Aeonik-BoldItalic.ttf') format('truetype');
-  font-weight: 700;
-  font-style: italic;
+.font-aeonik-bold {
+  font-family: 'Aeonik', 'Inter', serif!important;
+  font-weight: 700!important;
+  font-style: normal !important;
 }
 
 .font-teodor {
   font-family: 'Teodor', serif;
+  font-weight: 700!important;
+  font-style: normal !important;
+}
+
+.font-mono {
+  font-family: 'GT Pressura Mono', monospace!important;
 }
 
 #text-lema {
@@ -61,6 +112,40 @@
 
 body {
   font-family: 'Aeonik', sans-serif;
+}
+
+.values {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.sponsors-section {
+  background-image: url('../img/tertiary_horizontal.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+@media (max-width: 768px) {
+  .sponsors-section {
+    background-image: url('../img/tertiary_vertical.png');
+    background-attachment: scroll;
+  }
+}
+
+.volunteers-section {
+  background-image: url('../img/secondary_horizontal.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+@media (max-width: 768px) {
+  .volunteers-section {
+    background-image: url('../img/secondary_vertical.png');
+    background-attachment: scroll;
+  }
 }
 
 :where([class^="ri-"])::before { content: "\f3c2"; }

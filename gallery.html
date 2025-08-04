@@ -7,14 +7,11 @@
 <script src="https://cdn.tailwindcss.com/3.4.16"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="css/style.css">
 <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
 <style>
 :where([class^="ri-"])::before { content: "\f3c2"; }
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
-body {
-font-family: 'Inter', sans-serif;
-}
 .grain-texture {
 background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200"><defs><pattern id="grain2" width="200" height="200" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="0.8" fill="black" opacity="0.02"/><circle cx="150" cy="50" r="0.6" fill="black" opacity="0.015"/><circle cx="100" cy="100" r="0.7" fill="black" opacity="0.025"/><circle cx="50" cy="150" r="0.4" fill="black" opacity="0.01"/><circle cx="150" cy="150" r="0.9" fill="black" opacity="0.03"/></pattern></defs><rect width="200" height="200" fill="url(%23grain2)"/></svg>');
 background-color: #F7F4EF;
@@ -154,7 +151,7 @@ DEFAULT: '8px',
 <div class="w-6 h-6 flex items-center justify-center">
 <i class="ri-arrow-left-line text-lg"></i>
 </div>
-<span class="font-medium">Back to Event</span>
+<span class="font-medium">Volver al Evento</span>
 </a>
 </div>
 <div class="flex items-center gap-4">
@@ -162,19 +159,20 @@ DEFAULT: '8px',
 <div class="w-4 h-4 flex items-center justify-center mr-2 inline-block">
 <i class="ri-share-line"></i>
 </div>
-Share Gallery
+Compartir
 </button>
 </div>
 </div>
 </div>
 </nav>
 <main class="pt-20">
-<section class="py-16 bg-gradient-to-br from-primary/5 to-secondary/5">
-<div class="container mx-auto px-6">
-<div class="max-w-4xl mx-auto text-center">
-<h1 class="text-6xl font-bold text-primary mb-6 fade-in">Fotos del Evento</h1>
-<p class="text-xl text-gray-600 mb-8 leading-relaxed fade-in stagger-1">
+<section class="py-16 bg-gradient-to-br from-primary/5 to-secondary/5 bg-fixed bg-center bg-cover overflow-hidden" style="background-image: url('img/main-tour-background.jpg')">
+<div class="container mx-auto px-4 sm:px-6">
+<div class="max-w-4xl mx-auto text-center text-white">
+<h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 fade-in">Fotos del Evento</h1>
+<p class="text-xl text-white mb-8 leading-relaxed fade-in stagger-1">
 Explorá momentos memorables del PMI Tour, incluyendo presentaciones principales, sesiones de networking, talleres e interacciones entre los asistentes.</p>
+</p>
 <div class="flex flex-wrap justify-center gap-3 mb-8 fade-in stagger-2">
 <span class="bg-white px-4 py-2 rounded-full text-sm text-gray-600 border border-gray-200">
 <div class="w-4 h-4 flex items-center justify-center mr-2 inline-block">
@@ -186,13 +184,13 @@ Explorá momentos memorables del PMI Tour, incluyendo presentaciones principales
 <div class="w-4 h-4 flex items-center justify-center mr-2 inline-block">
 <i class="ri-calendar-line"></i>
 </div>
-2023-2025
+2022-2025
 </span>
 <span class="bg-white px-4 py-2 rounded-full text-sm text-gray-600 border border-gray-200">
 <div class="w-4 h-4 flex items-center justify-center mr-2 inline-block">
 <i class="ri-global-line"></i>
 </div>
-Buenos Aires, Argentina
+Buenos Aires, Arg.
 </span>
 </div>
 </div>
@@ -200,11 +198,11 @@ Buenos Aires, Argentina
 </section>
 <section class="py-12 bg-white sticky top-20 z-40 border-b border-gray-100">
 <div class="container mx-auto px-6">
-<div class="flex flex-col lg:flex-row items-center justify-between gap-6">
-<div class="flex flex-wrap items-center gap-3">
-<span class="text-gray-700 font-medium">Filter by:</span>
+<div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
+<div class="flex flex-wrap items-center gap-3 w-full lg:w-auto">
+<span class="text-gray-700 font-medium whitespace-nowrap">Filtar por:</span>
 <button class="filter-chip active px-4 py-2 rounded-full border border-gray-200 text-sm font-medium hover:bg-gray-50 transition-all duration-300" data-filter="all">
-All Photos
+Todas las fotos
 </button>
 <button class="filter-chip px-4 py-2 rounded-full border border-gray-200 text-sm font-medium hover:bg-gray-50 transition-all duration-300" data-filter="keynotes">
 Keynotes
@@ -219,9 +217,10 @@ Networking
 Venue
 </button>
 </div>
-<div class="flex items-center gap-4">
-<div class="relative">
-<select class="appearance-none bg-white border border-gray-200 rounded-lg px-4 py-2 pr-8 text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+<div class="flex items-center gap-4 w-full lg:w-auto">
+<div class="relative flex-1 lg:flex-none">
+<select id="yearFilter" class="w-full lg:w-auto appearance-none bg-white border border-gray-200 rounded-lg px-4 py-2 pr-8 text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+<option value="all">Todos los años</option>
 <option value="2025">2025</option>
 <option value="2024">2024</option>
 <option value="2023">2023</option>
@@ -232,25 +231,13 @@ Venue
 </div>
 </div>
 </div>
-<div class="flex items-center gap-2">
-<button class="p-2 rounded-lg border border-gray-200 hover:bg-gray-50 transition-colors duration-300" id="gridView">
-<div class="w-4 h-4 flex items-center justify-center">
-<i class="ri-grid-line text-gray-600"></i>
-</div>
-</button>
-<button class="p-2 rounded-lg border border-gray-200 hover:bg-gray-50 transition-colors duration-300" id="listView">
-<div class="w-4 h-4 flex items-center justify-center">
-<i class="ri-list-check text-gray-600"></i>
-</div>
-</button>
-</div>
 </div>
 </div>
 </div>
 </section>
 <section class="py-12 grain-texture min-h-screen">
 <div class="container mx-auto px-6">
-<div class="photo-grid" id="photoGrid">
+<div class="photo-grid md:columns-2 lg:columns-3 xl:columns-4 gap-6" id="photoGrid">
 <div class="photo-card bg-white rounded-2xl overflow-hidden shadow-lg cursor-pointer" data-category="keynotes" data-lightbox="https://readdy.ai/api/search-image?query=Professional%20keynote%20speaker%20presenting%20on%20stage%20at%20business%20conference%2C%20large%20audience%2C%20modern%20auditorium%2C%20professional%20lighting%2C%20corporate%20event%20atmosphere%2C%20high%20quality%20conference%20photography&width=800&height=1200&seq=keynote1&orientation=portrait">
 <img src="https://readdy.ai/api/search-image?query=Professional%20keynote%20speaker%20presenting%20on%20stage%20at%20business%20conference%2C%20large%20audience%2C%20modern%20auditorium%2C%20professional%20lighting%2C%20corporate%20event%20atmosphere%2C%20high%20quality%20conference%20photography&width=400&height=600&seq=keynote1&orientation=portrait" alt="Keynote Presentation" class="w-full h-auto object-cover">
 <div class="p-4">
@@ -266,6 +253,16 @@ Venue
 <p class="text-sm text-gray-600">PMI Tour Buenos Aires 2024 • Main Auditorium</p>
 </div>
 </div>
+
+
+
+
+
+
+
+
+
+
 <div class="photo-card bg-white rounded-2xl overflow-hidden shadow-lg cursor-pointer" data-category="networking" data-lightbox="https://readdy.ai/api/search-image?query=Professional%20business%20networking%20event%20with%20diverse%20group%20of%20people%20mingling%2C%20modern%20venue%2C%20cocktail%20reception%20atmosphere%2C%20natural%20lighting%2C%20corporate%20networking%20photography&width=800&height=600&seq=networking1&orientation=landscape">
 <img src="https://readdy.ai/api/search-image?query=Professional%20business%20networking%20event%20with%20diverse%20group%20of%20people%20mingling%2C%20modern%20venue%2C%20cocktail%20reception%20atmosphere%2C%20natural%20lighting%2C%20corporate%20networking%20photography&width=400&height=300&seq=networking1&orientation=landscape" alt="Networking Session" class="w-full h-auto object-cover">
 <div class="p-4">
@@ -443,22 +440,20 @@ Load More Photos
 </div>
 </section>
 </main>
-
-<!-- Footer -->
-<footer class="bg-[#200F3B] text-white py-12 border-t-4 border-[#B465FF]">
+<!--Footer-->
+<footer class="bg-primary text-white py-12 border-t-4 border-[#B465FF]">
 <div class="container mx-auto px-6">
 <div class="flex flex-col md:flex-row justify-between items-center">
 <div class="flex items-center gap-4 mb-6 md:mb-0">
 <div class="w-12 h-12 rounded-full overflow-hidden">
   <img src="img/logo-rounded.jpg" alt="PMI Logo" class="w-full h-full object-cover" />
 </div>
-
 <div>
 <p class="font-semibold">Project Management Institute</p>
 <p class="text-sm text-gray-400">Buenos Aires, Argentina</p>
 </div>
 </div>
-<div class="flex items-center gap-8">
+<div class="flex flex-col md:flex-row items-center gap-4 md:gap-8">
 <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Política de Privacidad</a>
 <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Términos y Condiciones</a>
 <span class="text-gray-400"><a href="https://pmi.org.ar" target="_blank" class="hover:underline">pmi.org.ar</a> | <a href="https://www.instagram.com/pmi.ba" target="_blank" class="hover:underline">@pmi.ba</a></span>
@@ -471,10 +466,7 @@ Load More Photos
 </div>
 </div>
 </footer>
-<button id="backToTop" class="fixed bottom-8 right-8 bg-primary/90 hover:bg-primary text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center transform translate-y-20 opacity-0 transition-all duration-300 cursor-pointer z-50">
-<i class="ri-arrow-up-line text-xl"></i>
-</button>
-
+<!--End of Footer-->
 <div class="lightbox" id="lightbox">
 <div class="absolute top-4 right-4 z-10">
 <button id="closeLightbox" class="bg-black/50 text-white w-12 h-12 rounded-full flex items-center justify-center hover:bg-black/70 transition-colors duration-300">
@@ -520,25 +512,33 @@ Load More Photos
 <i class="ri-arrow-up-line text-xl"></i>
 </div>
 </button>
-
-
 <script id="filter-functionality">
 document.addEventListener('DOMContentLoaded', function() {
 const filterChips = document.querySelectorAll('.filter-chip');
+const yearFilter = document.getElementById('yearFilter');
 const photoCards = document.querySelectorAll('.photo-card');
-filterChips.forEach(chip => {
-chip.addEventListener('click', function() {
-filterChips.forEach(c => c.classList.remove('active'));
-this.classList.add('active');
-const filter = this.getAttribute('data-filter');
-photoCards.forEach(card => {
-if (filter === 'all' || card.getAttribute('data-category') === filter) {
-card.style.display = 'block';
-} else {
-card.style.display = 'none';
+let currentCategory = 'all';
+let currentYear = 'all';
+function updateVisibility() {
+  photoCards.forEach(card => {
+    const cardYear = card.querySelector('p').textContent.match(/202[345]/)[0];
+    const cardCategory = card.getAttribute('data-category');
+    const matchesCategory = currentCategory === 'all' || cardCategory === currentCategory;
+    const matchesYear = currentYear === 'all' || cardYear === currentYear;
+    card.style.display = matchesCategory && matchesYear ? 'block' : 'none';
+  });
 }
+filterChips.forEach(chip => {
+  chip.addEventListener('click', function() {
+    filterChips.forEach(c => c.classList.remove('active'));
+    this.classList.add('active');
+    currentCategory = this.getAttribute('data-filter');
+    updateVisibility();
+  });
 });
-});
+yearFilter.addEventListener('change', function() {
+  currentYear = this.value;
+  updateVisibility();
 });
 });
 </script>
@@ -553,7 +553,7 @@ const photoCards = document.querySelectorAll('.photo-card');
 let currentImageIndex = 0;
 let visibleImages = [];
 function updateVisibleImages() {
-visibleImages = Array.from(document.querySelectorAll('.photo-card')).filter(card => 
+visibleImages = Array.from(document.querySelectorAll('.photo-card')).filter(card =>
 card.style.display !== 'none'
 );
 }

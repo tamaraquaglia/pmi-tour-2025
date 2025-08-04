@@ -1,8 +1,6 @@
+
 :where([class^="ri-"])::before { content: "\f3c2"; }
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
-body {
-font-family: 'Inter', sans-serif;
-}
+
 .grain-texture {
 background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200"><defs><pattern id="grain2" width="200" height="200" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="0.8" fill="black" opacity="0.02"/><circle cx="150" cy="50" r="0.6" fill="black" opacity="0.015"/><circle cx="100" cy="100" r="0.7" fill="black" opacity="0.025"/><circle cx="50" cy="150" r="0.4" fill="black" opacity="0.01"/><circle cx="150" cy="150" r="0.9" fill="black" opacity="0.03"/></pattern></defs><rect width="200" height="200" fill="url(%23grain2)"/></svg>');
 background-color: #F7F4EF;
